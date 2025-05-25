@@ -3,11 +3,8 @@ LBinarySerializer
 
 LBinarySerializer is a fast and efficient binary serializer for .NET.
 
-Examples
---------
-
-Simple example
--------------
+Usage
+---------------------
 
 ~~~csharp
 public class TestClass : ILBinarySerializable
@@ -185,24 +182,24 @@ Apple M1 Max, 1 CPU, 10 logical and 10 physical cores
 
 ### Small objects
 
-| Method                     | Categories                | N | Mean      | Ratio | Gen0   | Allocated | Alloc Ratio |
-|--------------------------- |-------------------------- |-- |----------:|------:|-------:|----------:|------------:|
-| LBinaryDeserializer        | Deserialize Small Objects | 1 |  49.34 ns |     ? | 0.0268 |     168 B |           ? |
-| ProtoBufDeserializer       | Deserialize Small Objects | 1 | 185.80 ns |     ? | 0.0267 |     168 B |           ? |
-| JsonSerializerDeserializer | Deserialize Small Objects | 1 | 157.23 ns |     ? | 0.0076 |      48 B |           ? |
-|                            |                           |   |           |       |        |           |             |
-| LBinarySerializer          | Serialize Small Objects   | 1 |  62.15 ns |  1.00 | 0.0280 |     176 B |        1.00 |
-| ProtoBufSerializer         | Serialize Small Objects   | 1 | 158.43 ns |  2.55 | 0.0165 |     104 B |        0.59 |
-| JsonSerializer             | Serialize Small Objects   | 1 | 201.34 ns |  3.24 | 0.0267 |     168 B |        0.95 |
+| Method                     | Categories                | Mean      | Ratio | Gen0   | Allocated | Alloc Ratio |
+|--------------------------- |-------------------------- |----------:|------:|-------:|----------:|------------:|
+| LBinaryDeserializer        | Deserialize Small Objects |  49.34 ns |     ? | 0.0268 |     168 B |           ? |
+| ProtoBufDeserializer       | Deserialize Small Objects | 185.80 ns |     ? | 0.0267 |     168 B |           ? |
+| JsonSerializerDeserializer | Deserialize Small Objects | 157.23 ns |     ? | 0.0076 |      48 B |           ? |
+|                            |                           |           |       |        |           |             |
+| LBinarySerializer          | Serialize Small Objects   |  62.15 ns |  1.00 | 0.0280 |     176 B |        1.00 |
+| ProtoBufSerializer         | Serialize Small Objects   | 158.43 ns |  2.55 | 0.0165 |     104 B |        0.59 |
+| JsonSerializer             | Serialize Small Objects   | 201.34 ns |  3.24 | 0.0267 |     168 B |        0.95 |
 
 ### Large objects
 
-| Method                     | Categories                | N | Mean       | Ratio | Gen0   | Gen1   | Allocated | Alloc Ratio |
-|--------------------------- |-------------------------- |-- |-----------:|------:|-------:|-------:|----------:|------------:|
-| LBinaryDeserializer        | Deserialize Large Objects | 1 |   564.2 ns |     ? | 0.3071 | 0.0019 |    1928 B |           ? |
-| ProtoBufDeserializer       | Deserialize Large Objects | 1 | 1,516.1 ns |     ? | 0.2956 | 0.0019 |    1856 B |           ? |
-| JsonSerializerDeserializer | Deserialize Large Objects | 1 | 1,052.2 ns |     ? | 0.0172 |      - |     112 B |           ? |
-|                            |                           |   |            |       |        |        |           |             |
-| LBinarySerializer          | Serialize Large Objects   | 1 |   828.3 ns |  1.00 | 0.2632 |      - |    1656 B |        1.00 |
-| ProtoBufSerializer         | Serialize Large Objects   | 1 | 1,035.0 ns |  1.25 | 0.1144 |      - |     728 B |        0.44 |
-| JsonSerializer             | Serialize Large Objects   | 1 | 1,355.6 ns |  1.64 | 0.2365 |      - |    1488 B |        0.90 |
+| Method                     | Categories                | Mean       | Ratio | Gen0   | Gen1   | Allocated | Alloc Ratio |
+|--------------------------- |-------------------------- |-----------:|------:|-------:|-------:|----------:|------------:|
+| LBinaryDeserializer        | Deserialize Large Objects |   564.2 ns |     ? | 0.3071 | 0.0019 |    1928 B |           ? |
+| ProtoBufDeserializer       | Deserialize Large Objects | 1,516.1 ns |     ? | 0.2956 | 0.0019 |    1856 B |           ? |
+| JsonSerializerDeserializer | Deserialize Large Objects | 1,052.2 ns |     ? | 0.0172 |      - |     112 B |           ? |
+|                            |                           |            |       |        |        |           |             |
+| LBinarySerializer          | Serialize Large Objects   |   828.3 ns |  1.00 | 0.2632 |      - |    1656 B |        1.00 |
+| ProtoBufSerializer         | Serialize Large Objects   | 1,035.0 ns |  1.25 | 0.1144 |      - |     728 B |        0.44 |
+| JsonSerializer             | Serialize Large Objects   | 1,355.6 ns |  1.64 | 0.2365 |      - |    1488 B |        0.90 |
