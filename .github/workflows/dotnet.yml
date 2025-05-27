@@ -107,7 +107,7 @@ jobs:
 
       - name: Pack
         run: |
-          dotnet pack src/ \
+          dotnet pack src/LBinarySerializer/ \
           --configuration Release \
           --no-restore \
           --output ./artifacts \
