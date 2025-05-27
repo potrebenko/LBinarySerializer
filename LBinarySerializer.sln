@@ -2,9 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LBinarySerializer", "src\LBinarySerializer\LBinarySerializer.csproj", "{D5515142-B708-4BAE-9059-B0D727F18088}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LBinarySerializer.Tests", "src\LBinarySerializer.Tests\LBinarySerializer.Tests.csproj", "{DD01ED40-CD67-49EB-A452-5325FE1073B2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LBinarySerializer.PerformanceTests", "tests\LBinarySerializer.PerformanceTests\LBinarySerializer.PerformanceTests.csproj", "{5A444FC6-DEAA-414D-8807-9968390DCB59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LBinarySerializer.PerformanceTests", "src\LBinarySerializer.PerformanceTests\LBinarySerializer.PerformanceTests.csproj", "{F0373D1A-0F68-4995-927B-2BDFFFA71151}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LBinarySerializer.Tests", "tests\LBinarySerializer.Tests\LBinarySerializer.Tests.csproj", "{EB66E5A6-DB1D-4729-9EFA-39B85AA9E7BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,13 +16,13 @@ Global
 		{D5515142-B708-4BAE-9059-B0D727F18088}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5515142-B708-4BAE-9059-B0D727F18088}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5515142-B708-4BAE-9059-B0D727F18088}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DD01ED40-CD67-49EB-A452-5325FE1073B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DD01ED40-CD67-49EB-A452-5325FE1073B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DD01ED40-CD67-49EB-A452-5325FE1073B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DD01ED40-CD67-49EB-A452-5325FE1073B2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F0373D1A-0F68-4995-927B-2BDFFFA71151}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F0373D1A-0F68-4995-927B-2BDFFFA71151}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F0373D1A-0F68-4995-927B-2BDFFFA71151}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F0373D1A-0F68-4995-927B-2BDFFFA71151}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A444FC6-DEAA-414D-8807-9968390DCB59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A444FC6-DEAA-414D-8807-9968390DCB59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A444FC6-DEAA-414D-8807-9968390DCB59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A444FC6-DEAA-414D-8807-9968390DCB59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB66E5A6-DB1D-4729-9EFA-39B85AA9E7BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB66E5A6-DB1D-4729-9EFA-39B85AA9E7BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB66E5A6-DB1D-4729-9EFA-39B85AA9E7BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB66E5A6-DB1D-4729-9EFA-39B85AA9E7BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

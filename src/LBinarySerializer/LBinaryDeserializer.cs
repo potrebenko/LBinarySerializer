@@ -550,7 +550,7 @@ public class LBinaryDeserializer
         return dictionary;
     }
 
-    public Dictionary<string, T> ReadDictionaryOfStructs<T>()
+    public Dictionary<string, T>? ReadDictionaryOfStructs<T>()
         where T : unmanaged
     {
         var length = ReadInt();

@@ -15,7 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\LBinarySerializer\LBinarySerializer.csproj" />
+      <ProjectReference Include="..\..\src\LBinarySerializer\LBinarySerializer.csproj" />
     </ItemGroup>
 
 </Project>

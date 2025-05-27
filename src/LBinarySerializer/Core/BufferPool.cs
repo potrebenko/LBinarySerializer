@@ -39,7 +39,7 @@ internal class BufferPool
     internal static void ReleaseToPool(ref byte[] buffer)
     {
         var tmp = buffer;
-        buffer = null;
+        buffer = null!;
         if(tmp is not null) _pool.Return(tmp);
     }
 
