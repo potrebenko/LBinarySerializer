@@ -15,6 +15,6 @@ public class LBinaryDeserializerBackwardCompatibilityTests
         var result = deserializer.Deserialize<DummyShort>();
 
         // Assert
-        result.Array.Select(x => x.Name).Should().BeEquivalentTo(value.Array.Select(x => x.Name));
+        result.Array.Select(x => x.Name).Should().BeEquivalentTo(value.Array!.Select(x => x.Name));
     }
 }

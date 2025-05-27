@@ -463,9 +463,8 @@ public class LBinaryDeserializerPrimitivesTests
         result.Should().Be(dateTimeOffset);
     }
 
-    [Theory]
-    [AutoData]
-    public void Deserialize_DateTimeOffset_ShouldReturnMinDateTimeOffset(LBinarySerializer serializer)
+    [Fact]
+    public void Deserialize_DateTimeOffset_ShouldReturnMinDateTimeOffset()
     {
         // Arrange
         var expectedValue = DateTimeOffset.MinValue;

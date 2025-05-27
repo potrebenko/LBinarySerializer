@@ -2,12 +2,12 @@ namespace LBinarySerializer.Tests;
 
 public class DummyNestedClass : ILBinarySerializable
 {
-    public string? Name { get; set; }
+    public string Name { get; set; }
     public int Age { get; set; }
     public bool IsAdmin { get; set; }
     public DateTime BirthDate { get; set; }
     public Guid Guid { get; set; }
-    public string? SecondName { get; set; }
+    public string SecondName { get; set; }
     public DummyEnum DummyEnum { get; set; }
 
     public void Serialize(LBinarySerializer serializer)

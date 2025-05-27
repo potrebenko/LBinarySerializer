@@ -9,7 +9,7 @@ public class LargeObject : ILBinarySerializable
     public int IntValue { get; set; }
     
     [ProtoMember(2)]
-    public string StringValue { get; set; }
+    public string? StringValue { get; set; }
     
     [ProtoMember(3)]
     public DateTime DateTime { get; set; }
@@ -30,19 +30,19 @@ public class LargeObject : ILBinarySerializable
     public ushort UShortValue { get; set; }
     
     [ProtoMember(9)]
-    public int[] IntArray { get; set; }
+    public int[]? IntArray { get; set; }
     
     [ProtoMember(10)]
-    public string[] StringArray { get; set; }
+    public string[]? StringArray { get; set; }
     
     [ProtoMember(11)]
-    public Dictionary<string, int> StringIntDictionary { get; set; }
+    public Dictionary<string, int>? StringIntDictionary { get; set; }
     
     [ProtoMember(12)]
-    public InlineObject InlineObject { get; set; }
+    public InlineObject? InlineObject { get; set; }
     
     [ProtoMember(13)]
-    public InlineObject[] InlineObjects { get; set; }
+    public InlineObject[]? InlineObjects { get; set; }
     
     public void Serialize(LBinarySerializer serializer)
     {
@@ -86,7 +86,7 @@ public class InlineObject : ILBinarySerializable
     public int IntValue { get; set; }
     
     [ProtoMember(2)]
-    public string StringValue { get; set; }
+    public string? StringValue { get; set; }
     
     [ProtoMember(3)]
     public DateTime DateTime { get; set; }

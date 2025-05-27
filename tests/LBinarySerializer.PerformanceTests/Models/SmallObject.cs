@@ -9,7 +9,7 @@ public class SmallObject : ILBinarySerializable
     public int IntValue { get; set; }
     
     [ProtoMember(2)]
-    public string StringValue { get; set; }
+    public string? StringValue { get; set; }
     
     [ProtoMember(3)]
     public DateTime DateTime { get; set; }

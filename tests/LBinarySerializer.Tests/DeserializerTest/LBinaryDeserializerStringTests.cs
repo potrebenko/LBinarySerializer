@@ -23,7 +23,7 @@ public class LBinaryDeserializerStringTests
     public void ReadString_NullString_ShouldReturnNullValue(LBinarySerializer serializer)
     {
         // Arrange
-        serializer.Write((string?)null);
+        serializer.Write((string)null);
         var data = serializer.GetData();
         var deserializer = new LBinaryDeserializer(data);
 

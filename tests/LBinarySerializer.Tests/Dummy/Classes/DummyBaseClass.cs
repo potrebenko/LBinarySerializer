@@ -2,8 +2,8 @@ namespace LBinarySerializer.Tests;
 
 public class DummyBaseClass : ILBinarySerializable
 {
-    public DummyNestedClass? Dummy { get; set; }
-    public string? Name { get; set; }
+    public DummyNestedClass Dummy { get; set; }
+    public string Name { get; set; }
     public int Age { get; set; }
     
     public void Serialize(LBinarySerializer serializer)
