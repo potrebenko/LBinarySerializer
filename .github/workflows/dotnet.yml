@@ -100,7 +100,7 @@ jobs:
 
       - name: Build
         run: |
-          dotnet build src/ \
+          dotnet build src/LBinarySerializer/ \
           --configuration Release \
           --no-restore
           -p:Version=${{ steps.version.outputs.version }}
