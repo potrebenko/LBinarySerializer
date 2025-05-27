@@ -24,10 +24,10 @@ public class SerializerSmallObjectsBenchmarks
     [Params(1)]
     public int N;
     
-    private SmallObject _rawData;
-    private byte[] _lBinarySerializedData;
-    private byte[] _protobufSerializedData;
-    private byte[] _jsonSerializedData;
+    private SmallObject? _rawData;
+    private byte[]? _lBinarySerializedData;
+    private byte[]? _protobufSerializedData;
+    private byte[]? _jsonSerializedData;
 
     [GlobalSetup]
     public void Setup()
@@ -52,7 +52,7 @@ public class SerializerSmallObjectsBenchmarks
     {
         for (int i = 0; i < N; i++)
         {
-            _rawData.Serialize(_serializer);
+            _rawData!.Serialize(_serializer);
             var bytes = _serializer.GetData();
             _serializer.Reset();
         }
@@ -86,7 +86,7 @@ public class SerializerSmallObjectsBenchmarks
     {
         for (int i = 0; i < N; i++)
         {
-            var result = _deserializer.Deserialize<SmallObject>(_lBinarySerializedData);
+            var result = _deserializer.Deserialize<SmallObject>(_lBinarySerializedData!);
         }
     }
     
