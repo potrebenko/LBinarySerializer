@@ -62,9 +62,6 @@ jobs:
           --configuration Release \
           --no-build \
           --verbosity normal \
-          --collect:"XPath Code Coverage" \
-          --results-directory ./coverage \
-          --logger trx \
           --logger "console;vebosity=detailed"
 
       - name: Generate test report
