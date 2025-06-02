@@ -2,6 +2,7 @@ using System.Text.Json;
 using AutoFixture;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Configs;
+using MemoryPack;
 using ProtoBuf;
 
 namespace LBinarySerializer.PerformanceTests;
@@ -28,6 +29,7 @@ public class SerializerSmallObjectsBenchmarks
     private byte[]? _lBinarySerializedData;
     private byte[]? _protobufSerializedData;
     private byte[]? _jsonSerializedData;
+    private byte[]? _memoryPackSerializedData;
 
     [GlobalSetup]
     public void Setup()
@@ -44,6 +46,7 @@ public class SerializerSmallObjectsBenchmarks
         _protobufStream.Position = 0;
         
         _jsonSerializedData = System.Text.Json.JsonSerializer.SerializeToUtf8Bytes(_rawData, _jsonSerializerOptions);
+        _memoryPackSerializedData = MemoryPackSerializer.Serialize(_rawData);
     }
 
     [Benchmark(Baseline = true, Description = "LBinarySerializer")]
@@ -80,6 +83,16 @@ public class SerializerSmallObjectsBenchmarks
         }
     }
 
+    [Benchmark(Description = "MemoryPackSerializer")]
+    [BenchmarkCategory(BenchmarkCategories.DeserializeSmall)]
+    public void MemoryPackSerialize()
+    {
+        for (int i = 0; i < N; i++)
+        {
+            var bytes = MemoryPackSerializer.Serialize(_rawData);
+        }
+    }
+
     [Benchmark(Description = "LBinaryDeserializer")]
     [BenchmarkCategory(BenchmarkCategories.DeserializeSmall)]
     public void LBinaryDeserializer()
@@ -107,6 +120,16 @@ public class SerializerSmallObjectsBenchmarks
         for (int i = 0; i < N; i++)
         {
             var result = System.Text.Json.JsonSerializer.Deserialize<SmallObject>(_jsonSerializedData);
+        }
+    }
+
+    [Benchmark(Description = "MemoryPackDeserializer")]
+    [BenchmarkCategory(BenchmarkCategories.DeserializeSmall)]
+    public void MemoryPackDeserialize()
+    {
+        for (int i = 0; i < N; i++)
+        {
+            var result = MemoryPackSerializer.Deserialize<SmallObject>(_memoryPackSerializedData);
         }
     }
 }

@@ -17,7 +17,7 @@
         <PackageProjectUrl>https://github.com/potrebenko/LBinarySerializer</PackageProjectUrl>
         <RepositoryUrl>https://github.com/potrebenko/LBinarySerializer</RepositoryUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <ItemGroup>

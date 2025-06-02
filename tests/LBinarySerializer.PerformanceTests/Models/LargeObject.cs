@@ -1,9 +1,11 @@
+using MemoryPack;
 using ProtoBuf;
 
 namespace LBinarySerializer.PerformanceTests;
 
 [ProtoContract]
-public class LargeObject : ILBinarySerializable
+[MemoryPackable]
+public partial class LargeObject : ILBinarySerializable
 {
     [ProtoMember(1)]
     public int IntValue { get; set; }
@@ -80,7 +82,8 @@ public class LargeObject : ILBinarySerializable
 }
 
 [ProtoContract]
-public class InlineObject : ILBinarySerializable
+[MemoryPackable]
+public partial class InlineObject : ILBinarySerializable
 {
     [ProtoMember(1)]
     public int IntValue { get; set; }
