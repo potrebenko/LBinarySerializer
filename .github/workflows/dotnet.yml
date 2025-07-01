@@ -28,7 +28,8 @@ env:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
   DOTNET_NOLOGO: true
   DOTNET_CLI_TELEMETRY_OPTOUT: 1
-
+  TEST_PROJECT_DIRECTORY: 'tests/LBinarySerializer.Tests/'
+  LIBRARY_PROJECT_DIRECTORY: 'src/LBinarySerializer/'
 jobs:
   test:
     name: Test
@@ -45,22 +46,26 @@ jobs:
           dotnet-version: 8.0.x
       - name: Cache dependencies
         uses: actions/cache@v3
+
         with:
           path: ~/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
           restore-keys: |
             ${{ runner.os }}-nuget-
-      - name: Restore dependencies
-        run: dotnet restore
 
-      - name: Build
-        run: dotnet build --configuration Release --no-restore
+      - name: Restore test dependencies
+        run: |
+          dotnet restore ${{ env.TEST_PROJECT_DIRECTORY }}
+
+      - name: Build test
+        run: |
+          dotnet build ${{ env.TEST_PROJECT_DIRECTORY }} --no-restore --configuration Release
 
       - name: Run tests
         run: |
-          dotnet test tests/LBinarySerializer.Tests/ \
+          dotnet test \
+          ${{ env.TEST_PROJECT_DIRECTORY }} \
           --configuration Release \
-          --no-build \
           --verbosity normal \
           --logger "console;vebosity=detailed"
   build:
@@ -96,19 +101,20 @@ jobs:
           echo "Package version: $VERSION"
 
       - name: Restore dependencies
-        run: dotnet restore \
-          src/LBinarySerializer/
+        run: dotnet restore ${{ env.LIBRARY_PROJECT_DIRECTORY }}
 
       - name: Build
         run: |
-          dotnet build src/LBinarySerializer/ \
+          dotnet build \
+          ${{ env.LIBRARY_PROJECT_DIRECTORY }} \
           --configuration Release \
           --no-restore \
           -p:Version=${{ steps.version.outputs.version }}
 
       - name: Pack
         run: |
-          dotnet pack src/LBinarySerializer/ \
+          dotnet pack \
+          ${{ env.LIBRARY_PROJECT_DIRECTORY }} \
           --configuration Release \
           --no-restore \
           --output ./artifacts \
