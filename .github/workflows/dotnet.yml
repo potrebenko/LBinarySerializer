@@ -96,13 +96,14 @@ jobs:
           echo "Package version: $VERSION"
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore \
+          src/LBinarySerializer/
 
       - name: Build
         run: |
           dotnet build src/LBinarySerializer/ \
           --configuration Release \
-          --no-restore
+          --no-restore \
           -p:Version=${{ steps.version.outputs.version }}
 
       - name: Pack
