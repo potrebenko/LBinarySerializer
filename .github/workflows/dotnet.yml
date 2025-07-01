@@ -116,14 +116,15 @@ jobs:
           dotnet pack \
           ${{ env.LIBRARY_PROJECT_DIRECTORY }} \
           --configuration Release \
-          --no-restore \
+          --no-build \
           --output ./artifacts \
+          --include-symbols \
           -p:PackageVersion=${{ steps.version.outputs.version }}
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: nuget-packages
+          name: "lbinaryserializer.${{ steps.version.outputs.version }}"
           path: ./artifacts/*.nupkg
           retention-days: 30
 
@@ -153,7 +154,14 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
-
-      - name: Publish to NuGet
+      - name: Publish to nuget.org
         run: |
-          echo "Publish to nuget version $VERSION"
+          dotnet nuget push \
+          ./artifacts/*.nupkg \
+          --api-key "${{ secrets.NUGET_API_KEY }}" \
+          --source "https://api.nuget.org/v3/index.json" \
+          --skip-duplicate
+
+      - name: Complete publishing
+        run: |
+          echo 'Publish to nuget version ${{ inputs.version }}'
