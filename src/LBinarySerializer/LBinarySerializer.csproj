@@ -18,10 +18,10 @@
         <RepositoryUrl>https://github.com/potrebenko/LBinarySerializer</RepositoryUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-        <PackageReadmeFile>README.MD</PackageReadmeFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="../../README.MD" Pack="true" PackagePath="/" />
+        <None Include="../../README.md" Pack="true" PackagePath="/" />
     </ItemGroup>
 </Project>
