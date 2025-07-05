@@ -5,6 +5,7 @@ LBinarySerializer is a fast and efficient binary serializer for .NET.
 
 ![NuGet Version](https://img.shields.io/nuget/v/LBinarySerializer) ![NuGet Downloads](https://img.shields.io/nuget/dt/LBinarySerializer) ![GitHub License](https://img.shields.io/github/license/potrebenko/LBinarySerializer)
 
+![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/potrebenko/ae3e58be2403eb6ef2ad344cf26357b3/raw/code-coverage.yml)
 Usage
 ---------------------
 

@@ -67,7 +67,24 @@ jobs:
           ${{ env.TEST_PROJECT_DIRECTORY }} \
           --configuration Release \
           --verbosity normal \
-          --logger "console;vebosity=detailed"
+          --logger "console;vebosity=detailed" \
+          -p:CollectCoverage=true \
+          -p:CoverletOutput=TestResults/ \
+          -p:CoverletOutputFormat=opencover
+
+      - name: Create test coverage badge
+        uses: simon-k/dotnet-code-coverage-badge@v1.0.0
+        id: create_coverage_badge
+        with:
+          label: Unit Test Coverage
+          color: brightgreen
+          path: ${{ env.TEST_PROJECT_DIRECTORY }}TestResults/coverage.opencover.xml
+          gist-filename: code-coverage.yml
+          gist-id: ae3e58be2403eb6ef2ad344cf26357b3
+          gist-auth-token: ${{ secrets.GIST_AUTH_TOKEN }}
+      - name: Print code coverage
+        run: echo "Code coverage percentage ${{ steps.create_coverage_badge.outputs.percentage }}%"
+
   build:
     runs-on: ubuntu-latest
     needs: test
